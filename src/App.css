@@ -1,0 +1,15 @@
+.page-layout {
+  height: 100%;
+}
+.navbar-dark {
+  width: 100%;
+  background-color: #111111;
+  color: rgb(240, 240, 240);
+  height: 50px;
+}
+
+.footer {
+  height: 50px;
+  width: 100%;
+  background-color: #202020;
+}
