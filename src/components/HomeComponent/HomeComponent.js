@@ -1,30 +1,34 @@
 import React from "react";
-import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-} from "reactstrap";
 import { Row, Col } from "antd";
+import { Link } from "react-router-dom";
 import "./HomeComponent.css";
 
 function RenderCard({ item }) {
+  console.log(item.name);
+  const urlName = item.name.replace(" ", "+");
   return (
     <div className="card">
-      <img
-        className="card-image"
-        src={item.image}
-        alt={item.name}
-        style={{ width: "100% " }}
-      />
-      <div className="card-body">
-        <div className="card-title">
-          {item.name} ({item.productionYear}), {item.genre}
+      <Link to={`/${urlName}`} style={{ color: "#fff" }}>
+        <div className="image">
+          <img
+            src={item.image}
+            alt={item.name}
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          />
         </div>
-        <div className="card-subtitle"></div>
-        {/* <div className="card-text">{item.synopsisShort}</div> */}
+        <div className="card-hover">
+          <div className="hover-title">
+            <div className="movie-name">{item.name}&nbsp;</div>
+            <div className="movie-year">({item.productionYear})</div>
+          </div>
+          <div className="movie-genre">{item.genre} </div>
+          <div className="card-body">{item.synopsisShort}</div>
+        </div>
+      </Link>
+      <div className="card-title">
+        <div className="movie-name">{item.name}&nbsp;</div>
+        <div className="movie-year">({item.productionYear})&nbsp;</div>
+        <div className="movie-genre">{item.genre}</div>
       </div>
     </div>
   );
@@ -33,9 +37,9 @@ function RenderCard({ item }) {
 const Home = (props) => {
   const movies = props.movies.map((movie) => {
     return (
-      <Col xs={12} sm={12} md={12} lg={8} xl={6}>
+      <Col xs={12} sm={12} md={8} lg={6} xl={4}>
         <div key={movie.name}>
-          <RenderCard item={movie} />
+          <RenderCard item={movie} onClick={props.onClick} />
         </div>
       </Col>
     );
@@ -43,7 +47,7 @@ const Home = (props) => {
 
   return (
     <div className="container">
-      <Row gutter={[16, 8]}>{movies}</Row>
+      <Row gutter={[32, 16]}>{movies}</Row>
     </div>
   );
 };
