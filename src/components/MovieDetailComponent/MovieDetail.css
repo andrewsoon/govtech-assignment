@@ -1,6 +1,6 @@
 .container {
   background-color: #1b1b1b;
-  color: #fff;
+  color: #f0f0f0;
   margin: 0;
   min-height: 100%;
   width: 100%;
@@ -16,7 +16,7 @@
 
 .detail-image {
   width: 100%;
-  padding: 20px;
+  padding: 40px 20px 20px 20px;
 }
 
 .detail-box {

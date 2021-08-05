@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router";
-import Header from "./HeaderComponent";
+import Header from "../components/HeaderComponent/HeaderComponent";
 import Home from "../components/HomeComponent/HomeComponent";
-import Footer from "./FooterComponent";
+import Footer from "../components/FooterComponent/FooterComponent";
 import "../App.css";
 import { MOVIES } from "../resources/Movies";
 import MovieDetail from "../components/MovieDetailComponent/MovieDetailComponent";

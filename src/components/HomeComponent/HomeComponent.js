@@ -8,7 +8,7 @@ function RenderCard({ item }) {
   const urlName = item.name.replace(" ", "+");
   return (
     <div className="card">
-      <Link to={`/${urlName}`} style={{ color: "#fff" }}>
+      <Link to={`/${urlName}`} style={{ color: "#f0f0f0" }}>
         <div className="image">
           <img
             src={item.image}
@@ -22,7 +22,7 @@ function RenderCard({ item }) {
             <div className="movie-year">({item.productionYear})</div>
           </div>
           <div className="movie-genre">{item.genre} </div>
-          <div className="card-body">{item.synopsisShort}</div>
+          <div className="movie-synopsis">{item.synopsisShort}</div>
         </div>
       </Link>
       <div className="card-title">
