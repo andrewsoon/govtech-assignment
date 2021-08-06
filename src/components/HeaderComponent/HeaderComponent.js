@@ -11,11 +11,7 @@ class Header extends Component {
             Movie WebApp
           </Link>
         </div>
-        <div className="navbar-dark">
-          <Link to="/" style={{ color: "#f0f0f0" }}>
-            <div className="nav-to-main">Main</div>
-          </Link>
-        </div>
+        <div className="navbar-dark"></div>
       </div>
     );
   }

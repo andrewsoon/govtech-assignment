@@ -1,12 +1,15 @@
 import React from "react";
 import { Row, Col } from "antd";
+import { Link } from "react-router-dom";
 import "./MovieDetail.css";
 
 function RenderMovie({ movie }) {
   const synopsis = movie.synopsis.replaceAll("<br />", "\n");
-  console.log(synopsis);
   return (
     <div className="movie-detail-container">
+      <Link to="/" style={{ color: "#f0f0f0" }}>
+        <div className="nav-to-main">Back To Main</div>
+      </Link>
       <Row>
         <Col
           xs={24}
