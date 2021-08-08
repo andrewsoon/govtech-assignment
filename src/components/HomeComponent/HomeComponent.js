@@ -36,6 +36,7 @@ function RenderCard({ item }) {
 }
 
 const Home = (props) => {
+  //Initial state of movie list to be rendered
   const [movieList, setMovieList] = useState(props.movies);
   //map array to render card for each array item
   const movies = movieList.map((movie) => {
@@ -47,8 +48,6 @@ const Home = (props) => {
       </Col>
     );
   });
-
-  // --------------------filter logic-----------------------------//
 
   //filter repeated genre values
   var allGenres = [];
@@ -74,18 +73,19 @@ const Home = (props) => {
     }
   });
 
+  //This creates a dropdown menu overlay with the array values
   function dropdownMenu(filteredArr) {
     const menuItem = filteredArr.map((type) => {
       return <Menu.Item key={type}>{type}</Menu.Item>;
     });
     return <Menu onClick={onClick}>{menuItem}</Menu>;
   }
-
+  //Initial state of filters
   const [combinedFilter, setCombinedFilter] = useState([0, 0]);
   const [genreFilter, setGenreFilter] = useState("Movie Genre");
   const [yearFilter, setYearFilter] = useState("Production Year");
   const onClick = ({ key }) => {
-    //check if it is a string of numbers(productionYear) only
+    //check if it is a string of numbers(productionYear) only and update movie list by filtered year
     let isnum = /^\d+$/.test(key);
     if (isnum) {
       const yearKey = parseInt(key);
@@ -98,7 +98,7 @@ const Home = (props) => {
       newFilter.splice(0, 1, yearKey);
       setCombinedFilter(newFilter);
     } else {
-      //filter movies by genre only
+      //filter movies by genre only and update movie list by filtered genre
       const filteredMovies = props.movies.filter(
         (movie) => movie.genre === key
       );
@@ -108,11 +108,12 @@ const Home = (props) => {
       newFilter.splice(1, 1, key);
       setCombinedFilter(newFilter);
     }
-    //For movies by genre AND year
-    if (combinedFilter[0] !== 0 && combinedFilter[1] !== 0) {
+    //For filtering movies by genre AND year
+    const year = combinedFilter[0];
+    const genre = combinedFilter[1];
+    //if year and genre filter selected, update rendered movie list based on both filter
+    if (year !== 0 && genre !== 0) {
       const allMovies = props.movies;
-      const year = combinedFilter[0];
-      const genre = combinedFilter[1];
       var twoFilterArr = [];
       allMovies.map((movie) => {
         if (movie.productionYear === year && movie.genre === genre) {
@@ -146,7 +147,7 @@ const Home = (props) => {
             color: "#f0f0f0",
             border: "1px solid #b1b1b1",
             margin: "10px 20px 10px 0px",
-            width: "200px",
+            width: "160px",
           }}
         >
           {label} <DownOutlined />
@@ -184,10 +185,8 @@ const Home = (props) => {
       <Row gutter={[32, 16]}>{movies}</Row>
       <div>
         {movieList.length === 0 ? (
-          <div className="errMessage">No movies matching both filters.</div>
-        ) : (
-          <div></div>
-        )}
+          <div className="errMessage">Movie not found</div>
+        ) : null}
       </div>
     </div>
   );

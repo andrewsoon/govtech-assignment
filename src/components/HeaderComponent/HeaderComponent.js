@@ -5,7 +5,7 @@ import "./HeaderComponent.css";
 class Header extends Component {
   render() {
     return (
-      <div className="header-container">
+      <div>
         <div className="page-header">
           <Link to="/" style={{ color: "#f0f0f0" }}>
             Movie WebApp

@@ -1,3 +1,4 @@
+// Data from movies.json on github assignment.
 export const MOVIES = [
   {
     name: "Deadpool",

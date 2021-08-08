@@ -64,7 +64,7 @@ const MovieDetail = (props) => {
       </div>
     );
   } else {
-    return <div className="container">Routing Param match</div>;
+    return <div className="container">Match Error</div>;
   }
 };
 
