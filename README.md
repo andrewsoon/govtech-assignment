@@ -1,7 +1,6 @@
 # GovTech Frontend WebApp Assignment
 
 This repository consists of the frontend of a small webapp which displays movies details. The webapp contains responsive design and state management.
-
 <br/>
 
 ## Project Requirements
@@ -13,7 +12,6 @@ This repository consists of the frontend of a small webapp which displays movies
 - Clicking on a movie shows the movie details on a new page containing a button to return to main page
 
 - Movie filters for filtering movie by production year and genre
-
 <br/>
 
 ## Getting Started
@@ -46,12 +44,11 @@ npm install
 ```bash
 npm start
 ```
-
 <br/>
 
 ## Language & tools
 
-## Html
+### Html
 
 - Written using JavaScript
 
